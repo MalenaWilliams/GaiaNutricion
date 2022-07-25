@@ -1,8 +1,10 @@
+/*Funcion Calculadora de Calorias*/
+function calculadoraDeCalorias(){
 /*Indicador de sexo*/
 let sexo= prompt("Ingrese su sexo").toLowerCase();
 while (sexo!= "hombre" && sexo!= "varon" && sexo != "masculino" && sexo!="mujer" && sexo!="femenino") {
     sexo= prompt("Ingrese un sexo valido").toLowerCase();
-} 
+}
 /*Indicador de peso*/
 let peso=parseInt(prompt ("Ingrese su peso"));
 while (isNaN(peso)) {
@@ -51,12 +53,13 @@ switch (factorActividad) {
   default:
     alert ("Ingrese un dato valido");
 }
+
 /*Calculador de calorias Femenino*/
 function CalculoFemenino(peso,altura,edad,actividad) {
     let calculo1= 655 + (9.6*peso) + (1.8*altura) - (4.7*edad);
     let calculo2= calculo1*actividad
 
-    return calculo2
+    return calculo2;
 }
 /*Calculador de calorias Masculino*/
 function CalculoMasculino(peso,altura,edad,actividad) {
@@ -65,14 +68,16 @@ function CalculoMasculino(peso,altura,edad,actividad) {
 
     return calculo2
 }
-/*Resultado de calorias Femenino*/
-if (sexo== "mujer" || sexo== "femenino") { 
+   /*Resultado de calorias Femenino*/
+   if (sexo== "mujer" || sexo== "femenino") { 
     const resultadoFemenino= CalculoFemenino(peso,altura,edad,actividad)
-    alert ("El total de calorias diarias que debes consumir al dia segun los datos ingresados es de " + resultadoFemenino)
+    alert ("El total de calorias diarias que debes consumir segun los datos ingresados es de " + resultadoFemenino)
 }
-/*Resultado de calorias Masculino*/
-else {
+    /*Resultado de calorias Masculino*/
+    else {
     const resultadoMasculino= CalculoMasculino(peso,altura,edad,actividad)
-    alert ("El total de calorias diarias que debes consumir al dia segun los datos ingresados es de " + resultadoMasculino)
+    alert ("El total de calorias diarias que debes consumir segun los datos ingresados es de " + resultadoMasculino)
+}
 }
 
+calculadoraDeCalorias();
