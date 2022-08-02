@@ -87,9 +87,12 @@ const carrito = [];
 
 const tienda = [producto1, producto2, producto3, producto4, producto5];
 
+const productosDeportivos = tienda.slice(1, 3);
+
+//ConsoleLog//
+
 console.log(tienda);
 
-const productosDeportivos = tienda.slice(1, 3);
 console.log(
   "De todos los productos de nuestra tienda, dos son suplementos deportivos y se muestran a continuacion: "
 );
@@ -97,7 +100,7 @@ productosDeportivos.forEach((producto) => {
   console.log("- " + producto.nombre + ".");
 });
 
-//Prompts//
+//Prompts y alerts//
 
 alert(
   "los productos disponibles son: " +
