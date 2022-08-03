@@ -118,7 +118,7 @@ while (continuo == "si") {
 
   compraDeProductos();
 
-  let totalPrecio = carrito.reduce((acc, el) => acc + el.precio, 0);
+  totalPrecio = carrito.reduce((acc, el) => acc + el.precio, 0);
 
   continuo = prompt(
     "Usted esta comprando " +
@@ -128,3 +128,12 @@ while (continuo == "si") {
       " ¿Desea realizar otra compra?"
   ).toLocaleLowerCase();
 }
+const compras = carrito.map((el) => el.nombre);
+
+alert(
+  "Usted compro: " +
+    compras +
+    " por el precio final de $ " +
+    totalPrecio +
+    ". ¡Muchas gracias! Vuelva pronto."
+);
