@@ -95,7 +95,9 @@ productosDeportivos.forEach((producto) => {
 
 //Presentacion de productos al usuario//
 
-alert("los productos disponibles son: " + nombres);
+alert(
+  "Bienvenido a Gaia Nutricion, nuestros productos disponibles son: " + nombres
+);
 
 //Compra de productos//
 
