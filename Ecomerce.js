@@ -4,25 +4,18 @@ function compraDeProductos() {
 
   if (compra == producto1.nombre) {
     carrito.push(producto1);
-    totalPrecio = totalPrecio + producto1.precio;
   } else if (compra == producto2.nombre) {
     carrito.push(producto2);
-    totalPrecio = totalPrecio + producto2.precio;
   } else if (compra == producto3.nombre) {
     carrito.push(producto3);
-    totalPrecio = totalPrecio + producto3.precio;
   } else if (compra == producto4.nombre) {
     carrito.push(producto4);
-    totalPrecio = totalPrecio + producto4.precio;
   } else if (compra == producto5.nombre) {
     carrito.push(producto5);
-    totalPrecio = totalPrecio + producto5.precio;
   } else {
     alert("El producto solicitado no esta disponible, intentelo nuevamente");
     compra = prompt("Ingrese el producto deseado").toLocaleLowerCase();
   }
-
-  return totalPrecio;
 }
 
 //Constructora//
@@ -79,15 +72,15 @@ const producto5 = new Productos(
   1520
 );
 
-//Variables//
-
-let totalPrecio = 0;
-
-const carrito = [];
+//Arrays//
 
 const tienda = [producto1, producto2, producto3, producto4, producto5];
 
+const nombres = tienda.map((el) => el.nombre);
+
 const productosDeportivos = tienda.slice(1, 3);
+
+const carrito = [];
 
 //ConsoleLog//
 
@@ -100,53 +93,38 @@ productosDeportivos.forEach((producto) => {
   console.log("- " + producto.nombre + ".");
 });
 
-//Prompts y alerts//
+//Presentacion de productos al usuario//
 
-alert(
-  "los productos disponibles son: " +
-    producto1.nombre +
-    ", " +
-    producto2.nombre +
-    ", " +
-    producto3.nombre +
-    ", " +
-    producto4.nombre +
-    ", " +
-    producto5.nombre +
-    "."
-);
+alert("los productos disponibles son: " + nombres);
 
-const total = compraDeProductos();
+//Compra de productos//
+
+compraDeProductos();
+
+let totalPrecio = carrito.reduce((acc, el) => acc + el.precio, 0);
 
 let continuo = prompt(
   "Usted esta comprando " +
     carrito.length +
     " producto por la cantidad de " +
-    total +
+    totalPrecio +
     " ¿Desea realizar otra compra?"
 ).toLocaleLowerCase();
+
 console.log(carrito);
 
 while (continuo == "si") {
-  alert(
-    "los productos disponibles son: " +
-      producto1.nombre +
-      ", " +
-      producto2.nombre +
-      ", " +
-      producto3.nombre +
-      ", " +
-      producto4.nombre +
-      ", " +
-      producto5.nombre +
-      "."
-  );
-  const total = compraDeProductos();
+  alert("los productos disponibles son: " + nombres);
+
+  compraDeProductos();
+
+  let totalPrecio = carrito.reduce((acc, el) => acc + el.precio, 0);
+
   continuo = prompt(
     "Usted esta comprando " +
       carrito.length +
       " productos por la cantidad de " +
-      total +
+      totalPrecio +
       " ¿Desea realizar otra compra?"
   ).toLocaleLowerCase();
 }
