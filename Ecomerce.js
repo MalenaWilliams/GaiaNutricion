@@ -139,3 +139,17 @@ alert(
     totalPrecio +
     ". ¡Muchas gracias! Vuelva pronto."
 );
+
+//Modificacion en el DOM//
+
+let carritoHtml = document.getElementById("carritoHtml");
+if (carrito.length > 0)
+  carritoHtml.innerText = "Su carrito contiene los siguientes productos: ";
+let comprasHtml = document.getElementById("comprasHtml");
+carrito.forEach((producto) => {
+  comprasHtml.innerHTML += `<li>${producto.nombre} $ ${producto.precio}</li>`;
+  console.log(producto.nombre);
+});
+let totalHtml = document.getElementById("totalHtml");
+if (carrito.length > 0)
+  totalHtml.innerText = `El total de su compra es de $ ${totalPrecio}`;
