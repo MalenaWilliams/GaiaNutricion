@@ -1,21 +1,76 @@
-//Funcion Carrito//
-function compraDeProductos() {
-  let compra = prompt("Ingrese el producto deseado").toLocaleLowerCase();
+//Funciones//
+function muestraCarrito() {
+  let comprasHtml = document.getElementById("comprasHtml");
+  comprasHtml.innerHTML = ``;
+  let totalPrecio = carrito.reduce((acc, el) => acc + el.precio, 0);
+  let carritoHtml = document.getElementById("carritoHtml");
+  if (carrito.length > 0)
+    carritoHtml.innerText = "Su carrito contiene los siguientes productos: ";
+  let nuevaCompra = document.getElementById("comprasHtml");
+  carrito.forEach((producto) => {
+    comprasHtml.innerHTML += `<li>${producto.nombre} $ ${producto.precio}</li>`;
+  });
+  let totalHtml = document.getElementById("totalHtml");
+  if (carrito.length > 0)
+    totalHtml.innerText = `El total de su compra es de $ ${totalPrecio}`;
+}
 
-  if (compra == producto1.nombre) {
-    carrito.push(producto1);
-  } else if (compra == producto2.nombre) {
-    carrito.push(producto2);
-  } else if (compra == producto3.nombre) {
-    carrito.push(producto3);
-  } else if (compra == producto4.nombre) {
-    carrito.push(producto4);
-  } else if (compra == producto5.nombre) {
-    carrito.push(producto5);
-  } else {
-    alert("El producto solicitado no esta disponible, intentelo nuevamente");
-    compra = prompt("Ingrese el producto deseado").toLocaleLowerCase();
-  }
+function compraEnsureAdvance() {
+  carrito.push(producto1);
+  muestraCarrito();
+}
+
+function compraCreatina() {
+  carrito.push(producto2);
+  muestraCarrito();
+}
+
+function compraWheyProtein() {
+  carrito.push(producto3);
+  muestraCarrito();
+}
+
+function compraAminoTotal() {
+  carrito.push(producto4);
+  muestraCarrito();
+}
+
+function compraRedoxon() {
+  carrito.push(producto5);
+  muestraCarrito();
+}
+
+function compraDeProductos() {
+  let boton_ensure = document.getElementById("boton_ensure");
+  boton_ensure.onclick = compraEnsureAdvance;
+  let boton_creatina = document.getElementById("boton_creatina");
+  boton_creatina.onclick = compraCreatina;
+  let boton_whey = document.getElementById("boton_whey");
+  boton_whey.onclick = compraWheyProtein;
+  let boton_aminototal = document.getElementById("boton_aminototal");
+  boton_aminototal.onclick = compraAminoTotal;
+  let boton_redoxon = document.getElementById("boton_redoxon");
+  boton_redoxon.onclick = compraRedoxon;
+}
+
+function finalizarCompra() {
+  let totalPrecio = carrito.reduce((acc, el) => acc + el.precio, 0);
+  const compras = carrito.map((el) => el.nombre);
+
+  alert(
+    "Usted compro: " +
+      compras +
+      " por el precio final de $ " +
+      totalPrecio +
+      ". ¡Muchas gracias! Vuelva pronto."
+  );
+}
+
+function ecommerce() {
+  compraDeProductos();
+
+  let finalizar = document.getElementById("finalizar");
+  finalizar.onclick = finalizarCompra;
 }
 
 //Constructora//
@@ -23,7 +78,7 @@ function compraDeProductos() {
 class Productos {
   constructor(id, nombre, descripcion, contenidoNeto, precio) {
     (this.id = id),
-      (this.nombre = nombre.toLocaleLowerCase()),
+      (this.nombre = nombre.toLocaleUpperCase()),
       (this.descripcion = descripcion),
       (this.contenidoNeto = contenidoNeto),
       (this.precio = precio);
@@ -59,7 +114,7 @@ const producto3 = new Productos(
 const producto4 = new Productos(
   4,
   "Aminototal Pulver",
-  "Aminoacidos esenciales sabor frutilla",
+  "Aminoacidos esenciales sabor vainilla",
   "1kg",
   7750
 );
@@ -75,81 +130,8 @@ const producto5 = new Productos(
 //Arrays//
 
 const tienda = [producto1, producto2, producto3, producto4, producto5];
-
-const nombres = tienda.map((el) => el.nombre);
-
-const productosDeportivos = tienda.slice(1, 3);
+console.log(tienda);
 
 const carrito = [];
 
-//ConsoleLog//
-
-console.log(tienda);
-
-console.log(
-  "De todos los productos de nuestra tienda, dos son suplementos deportivos y se muestran a continuacion: "
-);
-productosDeportivos.forEach((producto) => {
-  console.log("- " + producto.nombre + ".");
-});
-
-//Presentacion de productos al usuario//
-
-alert(
-  "Bienvenido a Gaia Nutricion, nuestros productos disponibles son: " + nombres
-);
-
-//Compra de productos//
-
-compraDeProductos();
-
-let totalPrecio = carrito.reduce((acc, el) => acc + el.precio, 0);
-
-let continuo = prompt(
-  "Usted esta comprando " +
-    carrito.length +
-    " producto por la cantidad de " +
-    totalPrecio +
-    " ¿Desea realizar otra compra?"
-).toLocaleLowerCase();
-
-console.log(carrito);
-
-while (continuo == "si") {
-  alert("los productos disponibles son: " + nombres);
-
-  compraDeProductos();
-
-  totalPrecio = carrito.reduce((acc, el) => acc + el.precio, 0);
-
-  continuo = prompt(
-    "Usted esta comprando " +
-      carrito.length +
-      " productos por la cantidad de " +
-      totalPrecio +
-      " ¿Desea realizar otra compra?"
-  ).toLocaleLowerCase();
-}
-const compras = carrito.map((el) => el.nombre);
-
-alert(
-  "Usted compro: " +
-    compras +
-    " por el precio final de $ " +
-    totalPrecio +
-    ". ¡Muchas gracias! Vuelva pronto."
-);
-
-//Modificacion en el DOM//
-
-let carritoHtml = document.getElementById("carritoHtml");
-if (carrito.length > 0)
-  carritoHtml.innerText = "Su carrito contiene los siguientes productos: ";
-let comprasHtml = document.getElementById("comprasHtml");
-carrito.forEach((producto) => {
-  comprasHtml.innerHTML += `<li>${producto.nombre} $ ${producto.precio}</li>`;
-  console.log(producto.nombre);
-});
-let totalHtml = document.getElementById("totalHtml");
-if (carrito.length > 0)
-  totalHtml.innerText = `El total de su compra es de $ ${totalPrecio}`;
+ecommerce();

@@ -5,13 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>E-COMMERCE</h1>
-    <a href="index.html">calculadora de calorias</a>
-    <h2 id="carritoHtml">Su carrito esta vacio</h2>
-    <ul id="comprasHtml"></ul>
-    <h3 id="totalHtml">El total de su compra es de 0</h3>
+    <h1 class="main_title">E-COMMERCE</h1>
+    <a class="link" href="index.html">Calculadora de Calorias</a>
+    <section class="container" id="productosHtml">
+      <article class="card" id="ensureHtml">
+        <img class="card__img" src="./assets/ensure_advance.jpg" alt="" />
+        <h3 class="card__title">Ensure advance</h3>
+        <h4 class="card__price">$2916</h4>
+        <button class="card__button" id="boton_ensure">
+          Añadir al carrito
+        </button>
+      </article>
+      <article class="card" id="creatinaHtml">
+        <img class="card__img" src="./assets/creatina.jpg" alt="" />
+        <h3 class="card__title">Creatina ENA</h3>
+        <h4 class="card__price">$6399</h4>
+        <button class="card__button" id="boton_creatina">
+          Añadir al carrito
+        </button>
+      </article>
+      <article class="card" id="wheyproteinHtml">
+        <img class="card__img" src="./assets/whey_protein.jpg" alt="" />
+        <h3 class="card__title">Whey Protein</h3>
+        <h4 class="card__price">$5120</h4>
+        <button class="card__button" id="boton_whey">Añadir al carrito</button>
+      </article>
+      <article class="card" id="aminototalHtml">
+        <img class="card__img" src="./assets/aminototal_pulver.jpg" alt="" />
+        <h3 class="card__title">Aminototal Pulver</h3>
+        <h4 class="card__price">$7750</h4>
+        <button class="card__button" id="boton_aminototal">
+          Añadir al carrito
+        </button>
+      </article>
+      <article class="card" id="redoxonHtml">
+        <img class="card__img" src="./assets/redoxon_vitamina_c.jpg" alt="" />
+        <h3 class="card__title">Redoxon Vitamina C</h3>
+        <h4 class="card__price">$1520</h4>
+        <button class="card__button" id="boton_redoxon">
+          Añadir al carrito
+        </button>
+      </article>
+    </section>
+    <section class="carrito">
+      <article>
+        <div class="carrito__div">
+          <h2 id="carritoHtml">Su carrito esta vacio</h2>
+          <img class="carrito__img" src="./assets/carrito.png" alt="" />
+        </div>
+        <ul id="comprasHtml"></ul>
+      </article>
+      <h3 id="totalHtml">El total de su compra es de 0</h3>
+      <button class="finish_button" id="finalizar">Finalizar</button>
+    </section>
     <script src="Ecomerce.js"></script>
   </body>
 </html>

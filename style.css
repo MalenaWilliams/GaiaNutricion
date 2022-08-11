@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.main_title {
+  font-size: 3em;
+  color: springgreen;
+  border: solid 0.5px black;
+  text-align: center;
+  text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.562);
+}
+
+.link {
+  font-size: 2em;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+
+.link:hover {
+  color: springgreen;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 6%;
+}
+
+.card {
+  width: 20%;
+  height: auto;
+  margin: 0.7%;
+  border: solid 0.7px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1.2%;
+  padding-top: 1.2%;
+}
+
+.card__img {
+  width: 70%;
+}
+
+.card__title {
+  color: grey;
+}
+
+.card__price {
+  font-size: 1.4em;
+}
+
+.card__button {
+  font-size: 1.2em;
+  padding: 2%;
+  background-color: rgba(0, 255, 128, 0.356);
+  cursor: pointer;
+}
+.card__button:hover {
+  background-color: springgreen;
+}
+
+.finish_button:hover {
+  background-color: springgreen;
+}
+
+.carrito {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+.finish_button {
+  width: 50%;
+  font-size: 2em;
+  margin-top: 2%;
+  padding: 0.7%;
+  background-color: rgba(0, 255, 128, 0.356);
+  cursor: pointer;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.562);
+}
+
+ul {
+  margin: 2%;
+  list-style-type: circle;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1em;
+  text-align: center;
+}
+
+.carrito__div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
