@@ -107,3 +107,15 @@ ul {
   flex-direction: row;
   justify-content: center;
 }
+
+.quitar_producto {
+  cursor: pointer;
+  margin-left: 2%;
+  width: 3%;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
