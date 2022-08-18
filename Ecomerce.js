@@ -62,8 +62,7 @@ const tienda = [
 //Arrays//
 
 console.log(tienda);
-
-const carrito = [];
+// const carrito = [];
 
 //FUNCIONES//
 
@@ -95,9 +94,11 @@ function mostrarProducts() {
 
 function agregarAlCarrito(product) {
   carrito.push(product);
+  guardarEnStorage(carrito);
 }
 
 function actualizarCarrito() {
+  traerDelStorage();
   const comprasHtml = document.getElementById("comprasHtml");
   const totalHtml = document.getElementById("totalHtml");
   const carritoHtml = document.getElementById("carritoHtml");
@@ -120,6 +121,7 @@ function actualizarCarrito() {
       removeProductElement.src = "assets/quitar.png";
       removeProductElement.addEventListener("click", () => {
         carrito.splice(index, 1);
+        guardarEnStorage(carrito);
         actualizarCarrito();
       });
 
@@ -134,10 +136,22 @@ function actualizarCarrito() {
   }
 }
 
+function guardarEnStorage(lista) {
+  localStorage.setItem(`tiendaStorage`, JSON.stringify(lista));
+}
+
+function traerDelStorage() {
+  let listaATraer = localStorage.getItem(`tiendaStorage`);
+  if (listaATraer == null) {
+    carrito = [];
+  } else {
+    carrito = JSON.parse(listaATraer);
+  }
+}
+
 function finalizarCompra() {
   const precioFinal = actualizarCarrito();
   const compras = carrito.map((el) => el.nombre);
-  localStorage.setItem("2", "2");
   alert(
     `Usted compro: ${compras} por el precio final de \$${precioFinal}. 
           ¡Muchas gracias! Vuelva pronto.
@@ -147,6 +161,7 @@ function finalizarCompra() {
 
 function eCommerce() {
   mostrarProducts();
+  actualizarCarrito();
 
   const finalizar = document.getElementById("finalizar");
   finalizar.addEventListener("click", finalizarCompra);
