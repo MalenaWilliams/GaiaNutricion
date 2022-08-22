@@ -112,117 +112,129 @@
 // //     );
 // //   }
 // // }
-// function edad() {
-//   let valorEdad = document.getElementById("edad");
-//   let edadValue = valorEdad.value;
+function edad() {
+  let valorEdad = document.getElementById("edad");
+  let edadValue = valorEdad.value;
+  sessionStorage.setItem(`edadGuardada`, edadValue);
+  let edadGuardada = sessionStorage.getItem(`edadGuardada`);
 
-//   return edadValue;
-// }
+  return edadGuardada;
+}
 
-// function peso() {
-//   let valorPeso = document.getElementById("peso");
-//   let pesoValue = valorPeso.value;
+function peso() {
+  let valorPeso = document.getElementById("peso");
+  let pesoValue = valorPeso.value;
+  sessionStorage.setItem(`pesoGuardado`, pesoValue);
+  let pesoGuardado = sessionStorage.getItem(`pesoGuardado`);
 
-//   return pesoValue;
-// }
+  return pesoGuardado;
+}
 
-// function altura() {
-//   let valorAltura = document.getElementById("altura");
-//   let alturaValue = valorAltura.value;
+function altura() {
+  let valorAltura = document.getElementById("altura");
+  let alturaValue = valorAltura.value;
+  sessionStorage.setItem(`alturaGuardada`, alturaValue);
+  let alturaGuardada = sessionStorage.getItem(`alturaGuardada`);
 
-//   return alturaValue;
-// }
+  return alturaGuardada;
+}
 
-// function calculadoraDeCalorias() {
-//   let elementoActivo = document.querySelector('input[name="sexo"]:checked');
-//   if (elementoActivo.value == femenino) {
-//     calculoFemenino(pesoValue, alturaValue, edadValue, factorActividad);
-//   } else {
-//     calculoMasculino(pesoValue, alturaValue, edadValue, factorActividad);
-//   }
-// }
-// function calculo() {
-//   calculadoraDeCalorias();
-// }
+function calculadoraDeCalorias() {
+  let elementoActivo = document.querySelector('input[name="sexo"]:checked');
+  if (elementoActivo.value == femenino) {
+    calculoFemenino(pesoValue, alturaValue, edadValue, factorActividad);
+  } else {
+    calculoMasculino(pesoValue, alturaValue, edadValue, factorActividad);
+  }
+}
+function calculo() {
+  calculadoraDeCalorias();
+}
 
-// let cal = document.getElementById("calcular");
-// cal.onclick = actividad;
+let cal = document.getElementById("calcular");
+cal.onclick = actividad;
 
-// function s() {
-//   let elementoActivo = document.querySelector('input[name="sexo"]:checked');
-//   if (elementoActivo) {
-//     alert(elementoActivo.value);
-//   } else {
-//     alert("No hay ninún elemento activo");
-//   }
-// }
+function s() {
+  let elementoActivo = document.querySelector('input[name="sexo"]:checked');
+  if (elementoActivo) {
+    alert(elementoActivo.value);
+  } else {
+    alert("No hay ninún elemento activo");
+  }
+}
 
-// function actividad() {
-//   let factorActividad = 0;
-//   let elementoActivo = document.querySelector(
-//     'input[name="actividadFisica"]:checked'
-//   );
-//   if (elementoActivo) {
-//     factorActividad = elementoActivo.value;
-//     alert(factorActividad);
-//   }
-//   // let leve = document.querySelector('input[name="actividadFisica"]:checked');
-//   // if (leve) {
-//   //   factorActividad = leve.value;
-//   //   console.log(leve);
-//   // }
-//   // let moderada = querySelector('input[name="actividadFisica"]:checked');
-//   // if (moderada) {
-//   //   factorActividad = moderada.value;
-//   //   console.log(moderada);
-//   // }
-//   // let intensa = querySelector('input[name="actividadFisica"]:checked');
-//   // if (intensa) {
-//   //   factorActividad = intensa.value;
-//   //   console.log(intensa);
-//   // }
-//   // let profecional = querySelector('input[name="actividadFisica"]:checked');
-//   // if (profecional) {
-//   //   factorActividad = profecional.value;
-//   //   console.log(profecional);
-//   // }
-//   return factorActividad;
+function actividad() {
+  let factorActividad = 0;
+  let elementoActivo = document.querySelector(
+    'input[name="actividadFisica"]:checked'
+  );
+  if (elementoActivo) {
+    factorActividad = elementoActivo.value;
+    alert(factorActividad);
+  }
+  // let leve = document.querySelector('input[name="actividadFisica"]:checked');
+  // if (leve) {
+  //   factorActividad = leve.value;
+  //   console.log(leve);
+  // }
+  // let moderada = querySelector('input[name="actividadFisica"]:checked');
+  // if (moderada) {
+  //   factorActividad = moderada.value;
+  //   console.log(moderada);
+  // }
+  // let intensa = querySelector('input[name="actividadFisica"]:checked');
+  // if (intensa) {
+  //   factorActividad = intensa.value;
+  //   console.log(intensa);
+  // }
+  // let profecional = querySelector('input[name="actividadFisica"]:checked');
+  // if (profecional) {
+  //   factorActividad = profecional.value;
+  //   console.log(profecional);
+  // }
+  return factorActividad;
 
-//   // sedentario.addEventListener
+  // sedentario.addEventListener
 
-//   // leve.addEventListener("checked", (factorActividad = leve.value));
+  // leve.addEventListener("checked", (factorActividad = leve.value));
 
-//   // moderada.addEventListener("checked", (factorActividad = moderada.value));
+  // moderada.addEventListener("checked", (factorActividad = moderada.value));
 
-//   // intensa.addEventListener("checked", (factorActividad = intensa.value));
+  // intensa.addEventListener("checked", (factorActividad = intensa.value));
 
-//   // profecional.addEventListener(
-//   //   "checked",
-//   //   (factorActividad = profecional.value)
-//   // );
+  // profecional.addEventListener(
+  //   "checked",
+  //   (factorActividad = profecional.value)
+  // );
 
-//   // return factorActividad;
-// }
+  // return factorActividad;
+}
 
-// // Calculador de calorias Femenino
+// Calculador de calorias Femenino
 
-// function calculoFemenino(pesoValue, alturaValue, edadValue, factorActividad) {
-//   let calculo1 = 655 + 9.6 * pesoValue + 1.8 * alturaValue - 4.7 * edadValue;
-//   let calculo2 = calculo1 * factorActividad;
+function calculoFemenino(pesoValue, alturaValue, edadValue, factorActividad) {
+  let calculo1 = 655 + 9.6 * pesoValue + 1.8 * alturaValue - 4.7 * edadValue;
+  let calculo2 = calculo1 * factorActividad;
 
+  return calculo2;
+}
+// const calculoFemenino = (peso, altura, edad, actividad) => {
+//   let calculo1 = 655 + 9.6 * peso + 1.8 * altura - 4.7 * edad;
+//   let calculo2 = calculo1 * actividad;
+//   console.log(calculo2);
 //   return calculo2;
-// }
-// // const calculoFemenino = (peso, altura, edad, actividad) => {
-// //   let calculo1 = 655 + 9.6 * peso + 1.8 * altura - 4.7 * edad;
-// //   let calculo2 = calculo1 * actividad;
-// //   console.log(calculo2);
-// //   return calculo2;
-// // };
+// };
 
-// //Calculador de calorias Masculino
-// function calculoMasculino(pesoValue, alturaValue, edadValue, factorActividad) {
-//   let calculo1 = 66 + 13.7 * pesoValue + 5 * alturaValue - 6.8 * edadValue;
-//   let calculo2 = calculo1 * factorActividad;
+//Calculador de calorias Masculino
+function calculoMasculino(pesoValue, alturaValue, edadValue, factorActividad) {
+  let calculo1 = 66 + 13.7 * pesoValue + 5 * alturaValue - 6.8 * edadValue;
+  let calculo2 = calculo1 * factorActividad;
 
-//   return calculo2;
-// }
+  return calculo2;
+}
+altura();
+peso();
+edad();
+
+mostrarEnConsola = peso();
+console.log(mostrarEnConsola);

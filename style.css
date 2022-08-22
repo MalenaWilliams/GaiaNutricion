@@ -51,9 +51,15 @@ body {
   color: grey;
 }
 
-.card__price {
+.card__price-comun {
   font-size: 1.4em;
   margin: 0.45em;
+}
+
+.card__price-oferta {
+  color: rgb(94, 255, 20);
+  margin: 0.45em;
+  font-size: 1.4em;
 }
 
 .card__info {

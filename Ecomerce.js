@@ -18,7 +18,7 @@ const tienda = [
     1,
     "assets/ensure_advance.jpg",
     "Ensure Advance",
-    "Suplemento nutricional en polvo sabor banana",
+    "Suplemento nutricional sabor banana",
     "400g",
     2916
   ),
@@ -61,8 +61,7 @@ const tienda = [
 
 //Arrays//
 
-console.log(tienda);
-// const carrito = [];
+console.log(...tienda);
 
 //FUNCIONES//
 
@@ -75,12 +74,20 @@ function mostrarProducts() {
     const eCommerceHtml = document.createElement("article");
     eCommerceHtml.className = "card";
     eCommerceHtml.innerHTML += `
-                <img class="card__img" src="${product.img}" alt="${product.nombre}">
+                <img class="card__img" src="${product.img}" alt="${
+      product.nombre
+    }">
                 <h3 class="card__title">${product.nombre}</h3>
                 <p class="card__info">${product.descripcion}.</p>
-                <p class="card__info"> Contenido neto: ${product.contenidoNeto}.</p>
-                <p class="card__price">Precio: $ ${product.precio}</p>
-                <button class="card__button" id="button_${product.id}">Agregar al carrito</button>
+                <p class="card__info"> Contenido neto: ${
+                  product.contenidoNeto
+                }.</p>
+                <p class="card__price${
+                  product.precio < 3000 ? "-oferta" : "-comun"
+                }">Precio: $ ${product.precio}</p>
+                <button class="card__button" id="button_${
+                  product.id
+                }">Agregar al carrito</button>
         `;
     sectionEcommerce.appendChild(eCommerceHtml);
 
@@ -142,21 +149,28 @@ function guardarEnStorage(lista) {
 
 function traerDelStorage() {
   let listaATraer = localStorage.getItem(`tiendaStorage`);
-  if (listaATraer == null) {
-    carrito = [];
-  } else {
-    carrito = JSON.parse(listaATraer);
-  }
+  listaATraer = (carrito = JSON.parse(listaATraer)) || [];
 }
 
 function finalizarCompra() {
   const precioFinal = actualizarCarrito();
   const compras = carrito.map((el) => el.nombre);
-  alert(
-    `Usted compro: ${compras} por el precio final de \$${precioFinal}. 
-          ¡Muchas gracias! Vuelva pronto.
-      `
-  );
+  if (carrito.length > 3) {
+    const [, , tercerProducto] = carrito;
+    const { nombre, precio } = tercerProducto;
+    alert(
+      `Usted compro: ${compras} por el precio final de $${
+        precioFinal - precio / 2
+      } ya que otuvo un descuento del 50% en su tercer producto "${nombre}" por realizar una compra mayor a 3 productos.
+      ¡Muchas gracias! Vuelva pronto.`
+    );
+  } else {
+    alert(
+      `Usted compro: ${compras} por el precio final de $${precioFinal}. 
+            ¡Muchas gracias! Vuelva pronto.
+        `
+    );
+  }
 }
 
 function eCommerce() {
