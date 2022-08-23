@@ -161,7 +161,7 @@ function finalizarCompra() {
     alert(
       `Usted compro: ${compras} por el precio final de $${
         precioFinal - precio / 2
-      } ya que otuvo un descuento del 50% en su tercer producto "${nombre}" por realizar una compra mayor a 3 productos.
+      } ya que otuviste un descuento sorpresa del 50% en tu tercer producto "${nombre}" por realizar una compra mayor a 3 productos.
       ¡Muchas gracias! Vuelva pronto.`
     );
   } else {
@@ -180,5 +180,4 @@ function eCommerce() {
   const finalizar = document.getElementById("finalizar");
   finalizar.addEventListener("click", finalizarCompra);
 }
-
 eCommerce();
