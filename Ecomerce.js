@@ -158,12 +158,15 @@ function finalizarCompra() {
   if (carrito.length > 3) {
     const [, , tercerProducto] = carrito;
     const { nombre, precio } = tercerProducto;
-    alert(
-      `Usted compro: ${compras} por el precio final de $${
+    Swal.fire({
+      title: "Su compra fue realizada con exito",
+      text: `Usted compro: ${compras} por el precio final de $${
         precioFinal - precio / 2
       } ya que otuviste un descuento sorpresa del 50% en tu tercer producto "${nombre}" por realizar una compra mayor a 3 productos.
-      ¡Muchas gracias! Vuelva pronto.`
-    );
+      ¡Muchas gracias! Vuelva pronto.`,
+      icon: "éxito",
+      confirmButtonText: "Genial!",
+    });
   } else {
     alert(
       `Usted compro: ${compras} por el precio final de $${precioFinal}. 
