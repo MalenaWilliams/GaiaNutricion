@@ -160,7 +160,7 @@ function finalizarCompra() {
     const { nombre, precio } = tercerProducto;
     Swal.fire({
       title: "Su compra fue realizada con exito",
-      text: `Usted compro: ${compras} por el precio final de $${
+      text: `Has comprado: ${compras} por el precio final de $${
         precioFinal - precio / 2
       } ya que otuviste un descuento sorpresa del 50% en tu tercer producto "${nombre}" por realizar una compra mayor a 3 productos.
       ¡Muchas gracias! Vuelva pronto.`,
@@ -168,11 +168,13 @@ function finalizarCompra() {
       confirmButtonText: "Genial!",
     });
   } else {
-    alert(
-      `Usted compro: ${compras} por el precio final de $${precioFinal}. 
-            ¡Muchas gracias! Vuelva pronto.
-        `
-    );
+    Swal.fire({
+      title: "Su compra fue realizada con exito",
+      text: `Usted compro: ${compras} por el precio final de $${precioFinal}. 
+      ¡Muchas gracias! Vuelva pronto.`,
+      icon: "éxito",
+      confirmButtonText: false,
+    });
   }
 }
 
@@ -184,3 +186,11 @@ function eCommerce() {
   finalizar.addEventListener("click", finalizarCompra);
 }
 eCommerce();
+
+Toastify({
+  text: "This is a toast",
+  className: "info",
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+  },
+}).showToast();
