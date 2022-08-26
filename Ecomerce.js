@@ -186,9 +186,9 @@ function finalizarCompra() {
   } else {
     Swal.fire({
       title: "Su compra fue realizada con exito",
-      icon: "éxito",
+      icon: "success",
       showConfirmButton: false,
-      timer: 160,
+      timer: 1500,
     });
   }
 }
