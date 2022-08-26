@@ -160,10 +160,14 @@ function finalizarCompra() {
     const { nombre, precio } = tercerProducto;
     Swal.fire({
       title: "Su compra fue realizada con exito",
-      text: `Has comprado: ${compras} por el precio final de $${
+      text: `El precio final de su compra fue de $${
         precioFinal - precio / 2
       } ya que otuviste un descuento sorpresa del 50% en tu tercer producto "${nombre}" por realizar una compra mayor a 3 productos.
       ¡Muchas gracias! Vuelva pronto.`,
+      backdrop: `
+      rgba(0,0,123,0.4)
+      url("/assets/gif.gif")
+      no-repeat`,
       icon: "éxito",
       confirmButtonText: "Genial!",
     });
@@ -172,7 +176,7 @@ function finalizarCompra() {
       title: "Su compra fue realizada con exito",
       icon: "success",
       showConfirmButton: false,
-      timer: 120,
+      timer: 160,
     });
   }
 }
