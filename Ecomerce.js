@@ -101,6 +101,13 @@ function mostrarProducts() {
 
 function agregarAlCarrito(product) {
   carrito.push(product);
+  Toastify({
+    text: "This is a toast",
+    duration: 3000,
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    },
+  }).showToast();
   guardarEnStorage(carrito);
 }
 
@@ -166,7 +173,7 @@ function finalizarCompra() {
       ¡Muchas gracias! Vuelva pronto.`,
       backdrop: `
       rgba(0,0,123,0.4)
-      url("/assets/gif.gif")
+      url("assets/gif.gif")
       no-repeat`,
       icon: "éxito",
       confirmButtonText: "Genial!",
@@ -174,7 +181,7 @@ function finalizarCompra() {
   } else {
     Swal.fire({
       title: "Su compra fue realizada con exito",
-      icon: "success",
+      icon: "éxito",
       showConfirmButton: false,
       timer: 160,
     });
@@ -189,11 +196,3 @@ function eCommerce() {
   finalizar.addEventListener("click", finalizarCompra);
 }
 eCommerce();
-
-Toastify({
-  text: "This is a toast",
-  className: "info",
-  style: {
-    background: "linear-gradient(to right, #00b09b, #96c93d)",
-  },
-}).showToast();
