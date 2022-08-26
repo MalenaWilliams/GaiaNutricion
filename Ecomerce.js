@@ -102,10 +102,10 @@ function mostrarProducts() {
 function agregarAlCarrito(product) {
   carrito.push(product);
   Toastify({
-    text: "This is a toast",
+    text: "Producto añadido al carrito",
     duration: 3000,
     style: {
-      background: "linear-gradient(to right, #00b09b, #96c93d)",
+      background: "springgreen",
     },
   }).showToast();
   guardarEnStorage(carrito);
@@ -173,7 +173,7 @@ function finalizarCompra() {
       ¡Muchas gracias! Vuelva pronto.`,
       backdrop: `
       rgba(0,0,123,0.4)
-      url("assets/gif.gif")
+      url("assets/celebracion.gif")
       no-repeat`,
       icon: "éxito",
       confirmButtonText: "Genial!",
