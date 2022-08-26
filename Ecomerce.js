@@ -170,10 +170,9 @@ function finalizarCompra() {
   } else {
     Swal.fire({
       title: "Su compra fue realizada con exito",
-      text: `Usted compro: ${compras} por el precio final de $${precioFinal}. 
-      ¡Muchas gracias! Vuelva pronto.`,
-      icon: "éxito",
-      confirmButtonText: false,
+      icon: "success",
+      showConfirmButton: false,
+      timer: 120,
     });
   }
 }
