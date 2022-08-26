@@ -105,7 +105,7 @@ function agregarAlCarrito(product) {
     text: "Producto añadido al carrito",
     duration: 3000,
     style: {
-      background: "springgreen",
+      background: "rgba(0, 255, 128, 0.356)",
     },
   }).showToast();
   guardarEnStorage(carrito);
@@ -156,7 +156,11 @@ function guardarEnStorage(lista) {
 
 function traerDelStorage() {
   let listaATraer = localStorage.getItem(`tiendaStorage`);
-  listaATraer = (carrito = JSON.parse(listaATraer)) || [];
+  if (listaATraer == null) {
+    carrito = [];
+  } else {
+    carrito = JSON.parse(listaATraer);
+  }
 }
 
 function finalizarCompra() {
@@ -174,6 +178,7 @@ function finalizarCompra() {
       backdrop: `
       rgba(0,0,123,0.4)
       url("assets/celebracion.gif")
+      center
       no-repeat`,
       icon: "éxito",
       confirmButtonText: "Genial!",
