@@ -106,6 +106,7 @@ function agregarAlCarrito(product) {
     duration: 3000,
     style: {
       background: "rgba(0, 255, 128, 0.356)",
+      color: "black",
     },
   }).showToast();
   guardarEnStorage(carrito);
