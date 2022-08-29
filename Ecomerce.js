@@ -61,9 +61,18 @@ const tienda = [
 
 //Arrays//
 
-console.log(...tienda);
+console.log(tienda);
 
 //FUNCIONES//
+
+//Spread//
+function mayorMenorPrecio() {
+  const precios = tienda.map((el) => el.precio);
+  const menorPrecio = Math.min(...precios);
+  const mayorPrecio = Math.max(...precios);
+  console.log(`De todos los productos de nuestra tienda el mas costoso cuesta: 
+  $ ${mayorPrecio} y el mas economico de todos cuesta: $ ${menorPrecio}`);
+}
 
 function mostrarProducts() {
   const sectionEcommerce = document.getElementById("productsHtml");
@@ -97,6 +106,7 @@ function mostrarProducts() {
       actualizarCarrito();
     });
   });
+  mayorMenorPrecio();
 }
 
 function agregarAlCarrito(product) {
@@ -166,7 +176,6 @@ function traerDelStorage() {
 
 function finalizarCompra() {
   const precioFinal = actualizarCarrito();
-  const compras = carrito.map((el) => el.nombre);
   if (carrito.length > 3) {
     const [, , tercerProducto] = carrito;
     const { nombre, precio } = tercerProducto;
