@@ -1,0 +1,37 @@
+[
+    {"id": 1,
+     "img": "assets/ensure_advance.jpg",
+      "nombre": "Ensure Advance",
+      "descripcion": "Suplemento nutricional sabor banana",
+      "contenidoNeto": "400g",
+      "precio": 2916
+    },
+    {"id": 2,
+     "img": "assets/creatina.jpg",
+      "nombre": "Creatina ENA",
+      "descripcion": "Suplemento deportivo sin sabor",
+      "contenidoNeto": "300g",
+      "precio": 6399
+    },
+    {"id": 3,
+     "img": "assets/whey_protein.jpg",
+      "nombre": "Whey Protein",
+      "descripcion": "Suplemento deportivo sabor vainilla",
+      "contenidoNeto": "930g",
+      "precio": 5120
+    },
+    {"id": 4,
+     "img": "assets/aminototal_pulver.jpg",
+      "nombre": "Aminototal Pulver",
+      "descripcion": "Aminoacidos esenciales sabor vainilla",
+      "contenidoNeto": "1kg",
+      "precio": 7750
+    },
+    {"id": 5,
+     "img" : "assets/redoxon_vitamina_c.jpg",
+      "nombre": "Redoxon Vitamina C",
+      "descripcion": "Suplemento efervescente sabor naranja",
+      "contenidoNeto": "30g",
+      "precio": 1520
+    }
+]

@@ -13,51 +13,65 @@ class Producto {
 
 //Productos//
 
-const tienda = [
-  new Producto(
-    1,
-    "assets/ensure_advance.jpg",
-    "Ensure Advance",
-    "Suplemento nutricional sabor banana",
-    "400g",
-    2916
-  ),
-  new Producto(
-    2,
-    "assets/creatina.jpg",
-    "Creatina ENA",
-    "Suplemento deportivo sin sabor",
-    "300g",
-    6399
-  ),
+let tienda = []
 
-  new Producto(
-    3,
-    "assets/whey_protein.jpg",
-    "Whey Protein",
-    "Suplemento deportivo sabor vainilla",
-    "930g",
-    5120
-  ),
+fetch("productos.json")
+.then (response => response.json())
+.then (data => {
+  console.log(data)
+  for (let product of data){
+  let productoNuevo = new Producto(product.id, product.img, product.nombre, product.descripcion, product.contenidoNeto, product.precio) 
+  tienda.push (productoNuevo)
+  }
+  console.log (tienda)
+  mostrarProducts()
+})
 
-  new Producto(
-    4,
-    "assets/aminototal_pulver.jpg",
-    "Aminototal Pulver",
-    "Aminoacidos esenciales sabor vainilla",
-    "1kg",
-    7750
-  ),
+// const tienda = [
+//   new Producto(
+//     1,
+//     "assets/ensure_advance.jpg",
+//     "Ensure Advance",
+//     "Suplemento nutricional sabor banana",
+//     "400g",
+//     2916
+//   ),
+//   new Producto(
+//     2,
+//     "assets/creatina.jpg",
+//     "Creatina ENA",
+//     "Suplemento deportivo sin sabor",
+//     "300g",
+//     6399
+//   ),
 
-  new Producto(
-    5,
-    "assets/redoxon_vitamina_c.jpg",
-    "Redoxon Vitamina C",
-    "Suplemento efervescente sabor naranja",
-    "30g",
-    1520
-  ),
-];
+//   new Producto(
+//     3,
+//     "assets/whey_protein.jpg",
+//     "Whey Protein",
+//     "Suplemento deportivo sabor vainilla",
+//     "930g",
+//     5120
+//   ),
+
+//   new Producto(
+//     4,
+//     "assets/aminototal_pulver.jpg",
+//     "Aminototal Pulver",
+//     "Aminoacidos esenciales sabor vainilla",
+//     "1kg",
+//     7750
+//   ),
+
+//   new Producto(
+//     5,
+//     "assets/redoxon_vitamina_c.jpg",
+//     "Redoxon Vitamina C",
+//     "Suplemento efervescente sabor naranja",
+//     "30g",
+//     1520
+//   ),
+// ];
 
 //Arrays//
 
