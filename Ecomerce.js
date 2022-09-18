@@ -306,7 +306,9 @@ function establecerFiltroCategoria() {
 
   const vitamina = tienda.filter((product) => product.categoria == "vitamina");
 
-  const otrosProductos = tienda.filter((product) => product.categoria == "otros");
+  const otrosProductos = tienda.filter(
+    (product) => product.categoria == "otros"
+  );
 
   let eleccion = document.querySelector(".filtroSelectorCategoria").value;
   const sectionEcommerce = document.getElementById("productsHtml");
@@ -316,15 +318,15 @@ function establecerFiltroCategoria() {
   if (eleccion === "Proteina") {
     let eleccionFinal = proteina;
     crearDom(eleccionFinal);
-  //Vitaminas//
+    //Vitaminas//
   } else if (eleccion === "Vitamina") {
     let eleccionFinal = vitamina;
     crearDom(eleccionFinal);
-  //Otros Productos//
+    //Otros Productos//
   } else if (eleccion === "OtrosProductos") {
     let eleccionFinal = otrosProductos;
     crearDom(eleccionFinal);
-  //Sin Categoria//
+    //Sin Categoria//
   } else {
     mostrarProducts();
   }
@@ -338,15 +340,15 @@ function establecerFiltroCategoria() {
                 <img class="cards__img" src="${product.img}" alt="${
         product.nombre
       }">
-                <h3 id= "ve" class="cards__titulo">${product.nombre}</h3>
+                <h3 class="cards__titulo">${product.nombre}</h3>
                 <p class="cards__info">${product.descripcion}.</p>
                 <p class="cards__info"> Contenido neto: ${
                   product.contenidoNeto
                 }.</p>
-                <p class="cards__precioe${
+                <p class="cards__precio${
                   product.precio < 3000 ? "-oferta" : "-comun"
                 }">Precio: $ ${product.precio}</p>
-                <button class="card_button" id="button${
+                <button class="btn btn-bd-primary" id="button${
                   product.id
                 }">Agregar al carrito</button>
         `;
@@ -406,7 +408,7 @@ function Historial() {
   const historial = document.getElementById("historial");
   const historialTitulo = document.getElementById("exampleModalLabel");
   historial.innerHTML = "";
-  
+
   //Historial Modal//
   if (historialarray.length != 0) {
     historialTitulo.innerText = "Su historial de compras es el siguiente:";
