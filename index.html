@@ -1,80 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Calculadora de calorias</h1>
-    <a href="Ecomerce.html">ecomerce</a>
-    <section>
-      <article>
-        <form>
-          <div>
-            <h3>Complete con sus valores</h3>
-            <label for="input">Peso:</label>
-            <input id="peso" type="text" name="peso" value="" />
-            <label for="input">Altura:</label>
-            <input id="altura" type="text" name="altura" value="" />
-            <label for="input">Edad:</label>
-            <input id="edad" type="text" name="edad" value="" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaia Nutricion</title>
+  <!-- Animate -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Gaia Nutricion</a>
+        <!--Logo -->
+        <img class="logo" src="./assets/logo.png" alt="" />
+        <!--Enlaces -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link " href="home.html" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Calculadora</a>
+            </li>
+            <li class="carrito__div nav-item">
+              <a class="nav-link" href="Ecomerce.html">Productos</a>
+            </li>
+            <li class="nav-item btnDark">
+              <span id="btnDark">
+                <img class="dark" src="assets/dark.png" alt="">
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!--Formularios-->
+  <section class="form__contenedor">
+    <!--Formulario de Calorias Diarias -->
+    <article class="form__articulo">
+      <form class="form" id="form">
+        <h4 class="form__text">Calorias Diarias</h4>
+        <div class="radios">
+          <input class="form-check-input" id="femenino" type="radio" name="sexo" value="femenino" />
+          Femenino
+          <input class="form-check-input" id="masculino" type="radio" name="sexo" value="masculino" />
+          Masculino
+        </div>
+        <div class="row mb-3">
+          <label for="input" class="col-sm-2 col-form-label">Peso:</label>
+          <div class="col-sm-10">
+            <input class="form-control" placeholder="55" aria-label="First name" id="peso" type="text" name="peso"
+              value="" />
           </div>
-          <div>
-            <h3>Seleccione el tipo de actividad fisica que realiza</h3>
-            <input
-              class="n"
-              id="sedentario"
-              type="radio"
-              name="actividadFisica"
-              value="1.2"
-            />
-            Sedentario
-            <input
-              class="n"
-              id="leve"
-              type="radio"
-              name="actividadFisica"
-              value="1.375"
-            />
-            Leve
-            <input
-              class="n"
-              id="moderada"
-              type="radio"
-              name="actividadFisica"
-              value="1.55"
-            />
-            Moderada
-            <input
-              class="n"
-              id="intensa"
-              type="radio"
-              name="actividadFisica"
-              value="1.735"
-            />
-            Intensa
-            <input
-              class="n"
-              id="profesional"
-              type="radio"
-              name="actividadFisica"
-              value="1.9"
-            />
-            Atleta Profecional
+        </div>
+        <div class="row mb-3">
+          <label for="input" class="col-sm-2 col-form-label">Edad:</label>
+          <div class="col-sm-10">
+            <input class="form-control" placeholder="25" aria-label="First name" id="edad" type="text" name="edad"
+              value="" />
           </div>
-          <div>
-            <h3>Seleccione su sexo</h3>
-            <input id="femenino" type="radio" name="sexo" value="femenino" />
-            Femenino
-            <input id="masculino" type="radio" name="sexo" value="masculino" />
-            Masculino
+        </div>
+        <div class="row mb-3">
+          <label for="input" class="col-sm-2 col-form-label">Altura:</label>
+          <div class="col-sm-10">
+            <input class="form-control" placeholder="165 (Sin punto)" aria-label="First name" id="altura" type="text" name="altura"
+              value="" />
           </div>
-          <button id="calcular">Calcular</button>
-        </form>
-      </article>
-    </section>
-    <script src="index.js"></script>
-  </body>
+        </div>
+        <div class="col">
+          <div class="radios col-sm-10">
+            <p>Tipo de actividad fisica que realiza:</p>
+            <div class="form-check">
+              <input class="form-check-input" id="sedentario" type="radio" name="actividadFisica" value="1.2" />
+              Sedentario
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" id="leve" type="radio" name="actividadFisica" value="1.375" />
+              Leve
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" id="moderada" type="radio" name="actividadFisica" value="1.55" />
+              Moderada
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" id="intensa" type="radio" name="actividadFisica" value="1.735" />
+              Intensa
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" id="profesional" type="radio" name="actividadFisica" value="1.9" />
+              Atleta Profecional
+            </div>
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn_form btn btn-outline-secondary" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample"
+              id="calcular">Calcular</button>
+          </div>
+      </form>
+    </article>
+    <!--Formulario de IMC-->
+    <article class="form__articulo">
+      <form class="form" action="">
+        <h4 class="form__text">Indice de masa corporal (IMC)</h4>
+        <div class="row mb-3">
+          <label for="input" class="col-sm-2 col-form-label">Peso:</label>
+          <div class="col-sm-10">
+            <input class="form-control" placeholder="55" aria-label="First name" id="pesoImc" type="text" name="peso"
+              value="" required />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="input" class="col-sm-2 col-form-label">Altura:</label>
+          <div class="col-sm-10">
+            <input class="form-control" placeholder="1.65 (Con punto)" aria-label="First name" id="alturaImc" type="text"
+              name="altura" value="" required />
+          </div>
+        </div>
+        <div class="d-grid gap-2"><button class="btn_form btn btn-outline-secondary" type="button"
+            data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false"
+            aria-controls="collapseWidthExample" aria-describedby="tooltip" id="button">Calcular</button></div>
+      </form>
+      <!--Popper y Grafico de IMC-->
+      <div id="botones" class="botones">
+        <div  class="contener_boton"> 
+          <div  id="tooltip" role="tooltip">
+    Usted se encuentra aqui.<div id="arrow" data-popper-arrow></div>
+          </div>
+          <span class="botones__texto">Insuficiente</span>
+          <button id="imc1" class="imc1" >Su imc es de :
+          </button>
+        </div>
+        <div  class="contener_boton">
+          <span class="botones__texto">Delgadez </span>
+          <button id="imc2" class="imc2" >Su imc es de :
+          </button>
+        </div>
+        <div  class="contener_boton">
+          <span class="botones__texto">Saludable</span>
+          <button id="imc3" class="imc3" >Su imc es de :
+          </button>
+        </div>
+        <div  class="contener_boton">
+          <span class="botones__texto">Sobrepeso</span>
+          <button id="imc4" class="imc4" >Su imc es de :
+          </button>
+        </div>
+        <div  class="contener_boton">
+          <span class="botones__texto">Obesidad</span>
+          <button id="imc5" class="imc5" >Su imc es de :
+          </button>
+        </div>
+    </article> 
+  </section>
+  <!--Js Sweet Alert -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!--Js Popper -->
+  <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+  <!--Js Bootstrap-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+  <!--Js Propio-->
+  <script src="index.js"></script>
+</body>
 </html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gaia Nutricion</title>
+    <!-- Bootstrap -->
+    <link      
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Gaia Nutricion</a>
+        <!-- Logo -->
+        <img class="logo" src="./assets/logo.png" alt="" />
+        <!-- Enlaces -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Calculadora</a>
+            </li>
+            <li class="carrito__div nav-item">
+              <a class="nav-link" href="Ecomerce.html">Productos</a>
+            </li>
+            <!--DarkMode-->
+            <li class="nav-item btnDark">
+              <span id="btnDark">
+                <img class="dark" src="assets/dark.png" alt="" />
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <body>
+    <!-- Carrusel -->
+    <section class="carrusel">
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-bs-ride="true"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              class="d-block w-100"
+              src="./assets/nutricionista.jpg"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              class="d-block w-100"
+              src="./assets/importancia.jpg"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="./assets/Imagen.jpg" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="./assets/piramide.jpg" alt="..." />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+    <!-- Datos de la empresa -->
+    <div class="home">
+      <h1>Gaia Nutricion</h1>
+      <h3>Sociedad Argentina de nutricion</h3>
+      <p>Para una mejor alimentacion y calidad de vida</p>
+    </div>
+    <article class="presentacion">
+      En Gaia Nutricion® nos encargamos de darte asesoramiento para ayudarte a
+      mantener y mejorar tu salud alimentaria. Podes encontrar herramientas como
+      nuestra "Calculadora" para saber cuantas calorias debes consumir a diario
+      y si tu IMC es el apropiado para tu cuerpo,ademas de contar con un
+      E-Comerce donde tendras acceso a productos que te ayudaran a complementar
+      tu nutricion, para llevar un mejor control de los macronutrientes diarios
+      en tu dieta! Podes contactar con nosotros en Nutricion@gaia.com.ar para
+      solicitar un asesoramiento personalizado.
+    </article>
+    <div class="card-group cards__section">
+      <div class="card">
+        <img src="./assets/plato-variado.jpg" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Variedad de Alimentos</h5>
+          <p class="card-text">
+            La variedad de nutrientes se obtiene comiendo todo tipo de
+            alimentos. Se han de añadir de todos los grupos (cereales, frutas,
+            hortalizas, aceites, lácteos, carnes, etc.), ya que ningún alimento
+            contiene por sí mismo todos los nutrientes necesarios.La dieta debe
+            incluir en gran cantidad alimentos de origen vegetal ya que las
+            verduras contienen agua, hidratos de carbono, fibra y cuentan con
+            casi todos los minerales y vitaminas hidrosolubles.
+          </p>
+        </div>
+      </div>
+      <!-- Cards "Claves de la nutricion" -->
+      <div class="card">
+        <img src="./assets/plato.jpg" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Cinco comidas Apetecibles</h5>
+          <p class="card-text">
+            Otra de las claves de una dieta sana es el correcto reparto de los
+            alimentos. Semfyc recomienda que se hagan cinco comidas al día
+            (desayuno, tentempié, comida, merienda y cena).Una dieta sana no
+            tiene que suponer un esfuerzo para la persona. Debe diseñarse de tal
+            manera que sea rica y apetecible para el que la toma. De otra
+            manera, seguirla se haría muy complicado y sería probable que se
+            acabara abandonando.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="./assets/metodo-del-plato.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Proporciones Adecuadas</h5>
+          <p class="card-text">
+            Es importante comer de todo, pero también en las proporciones
+            adecuadas. La Sociedad Española de Medicina de Familia y Comunitaria
+            (Semfyc), sugiere en esta guía las raciones que deben tomarse de
+            cada alimento.Como indica Semfyc, el agua es imprescindible para el
+            mantenimiento de la vida. “El consumo recomendado es de 1 o 2 litros
+            al día, o lo que es lo mismo, de 4 a 8 vasos aproximadamente”.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Js Bootstrap -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"
+  ></script>
+  <!-- Js Propio -->
+  <script src="home.js"></script>
+</html>
