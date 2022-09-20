@@ -73,6 +73,7 @@ header {
 .card {
   background: transparent;
   margin: 2%;
+  position: unset;
 }
 .card-img-top {
   height: 16.5em;

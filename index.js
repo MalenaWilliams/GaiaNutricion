@@ -1,31 +1,4 @@
-                                //FUNCIONES//
-//Dark Mode//
-function darkMode() {
-  let dark = document.getElementById("btnDark");
-  let darkMode = localStorage.getItem("darkMode");
-
-  if (darkMode == "dark") {
-    document.body.classList.add("darkMode");
-    dark.innerHTML = `<img class="dark" src="assets/ligth.png" alt="">`;
-  } else {
-    document.body.classList.remove("darkMode");
-  }
-  
-  dark.addEventListener("click", () => {
-    if (darkMode != "dark") {
-      document.body.classList.add("darkMode");
-      localStorage.setItem("darkMode", "dark");
-      darkMode = "dark";
-      dark.innerHTML = `<img class="dark" src="assets/ligth.png" alt="">`;
-    } else {
-      document.body.classList.remove("darkMode");
-      localStorage.setItem("darkMode", "ligth");
-      darkMode = "light";
-      dark.innerHTML = `<img class="dark" src="assets/dark.png" alt="">`;
-    }
-  });
-}
-
+//FUNCIONES//
 //Capturar datos para "Calculadora de Calorias Diarias" (Edad, Peso, Altura y Actividad fisica realizada)//
 
 //EDAD//
@@ -93,7 +66,7 @@ function calculadoraDeCalorias() {
     e.preventDefault();
     return false;
   });
-  
+
   if (elementoActivo.value == "femenino") {
     return calculoFemenino(peso(), altura(), edad(), actividad()).toFixed(0);
   } else {
@@ -142,26 +115,63 @@ function show() {
 }
 
 //Posicion de IMC y Popper correspondiente segun el resultado//
-
 function popperImc() {
-  let imcCalculo = imc(pesoImc(), alturaImc());
-  const imcUno = document.getElementById("imc1");
-  const imcDos = document.getElementById("imc2");
-  const imcTres = document.getElementById("imc3");
-  const imcCuatro = document.getElementById("imc4");
-  const imcCinco = document.getElementById("imc5");
+  const imcCalculo = imc(pesoImc(), alturaImc());
   const flecha = document.getElementById("arrow");
-  const datos = document.getElementById("tooltip")
-  const showEvents = ["click"];
-  imcCuatro.style.color = "transparent";
-  imcDos.style.color = "transparent";
-  imcTres.style.color = "transparent";
-  imcCinco.style.color = "transparent";
-  imcUno.style.color = "transparent";
+  const imcsData = [
+    //Delgadez Extrema//
+    {
+      elemento: document.getElementById("imc1"),
+      pesoMinimo: 1,
+      pesoMaximo: 15.9,
+      flechaMarginLeft: "-73px",
+      popperOffset: [-170, 110],
+    },
+    //Delgadez //
+    {
+      elemento: document.getElementById("imc2"),
+      pesoMinimo: 15.9,
+      pesoMaximo: 18.5,
+      flechaMarginLeft: "-68px",
+      popperOffset: [-92, 110],
+    },
+    //Saludable//
+    {
+      elemento: document.getElementById("imc3"),
+      pesoMinimo: 18.5,
+      pesoMaximo: 24.9,
+      flechaMarginLeft: "-3px",
+      popperOffset: [-2, 110],
+    },
+    //Sobrepeso//
+    {
+      elemento: document.getElementById("imc4"),
+      pesoMinimo: 24.9,
+      pesoMaximo: 29.9,
+      flechaMarginLeft: "79px",
+      popperOffset: [80, 110],
+    },
+    //Obesidad//
+    {
+      elemento: document.getElementById("imc5"),
+      pesoMinimo: 29.9,
+      pesoMaximo: 100,
+      flechaMarginLeft: "78px",
+      popperOffset: [170, 110],
+    },
+  ];
+
+  imcsData.forEach((data) => {
+    data.elemento.style.color = "transparent";
+  });
+
+  let foundImcData = imcsData.find(
+    (data) => imcCalculo >= data.pesoMinimo && imcCalculo < data.pesoMaximo
+  );
 
   //Alert para cuando los datos estan incompletos o el resultado da 0//
 
-  if (imc(pesoImc(), alturaImc()) == Infinity || pesoImc() == 0 || alturaImc() == 0) {
+  if (!foundImcData) {
     Swal.fire({
       title: "No fue posible realizar el calculo",
       text: "Complete todos los datos solicitados y vuelva a intentar",
@@ -171,127 +181,43 @@ function popperImc() {
     });
   }
 
- //Posicion de IMC y Popper para el resultado: "Delgadez Extrema"//
-
-  else if (imc(pesoImc(), alturaImc()) < 15.9) {
-    imcUno.style.color = "blueviolet";
-    imcUno.innerText = `IMC: ${imcCalculo}`;
-    flecha.style.marginLeft = "-73px";
+  //Popper correspondiente para cada caso//
+  else {
+    foundImcData.elemento.style.color = "blueviolet";
+    foundImcData.elemento.innerText = `IMC: ${imcCalculo}`;
+    flecha.style.marginLeft = foundImcData.flechaMarginLeft;
     popperInstance = Popper.createPopper(button, tooltip, {
       modifiers: [
         {
           name: "offset",
           options: {
-            offset: [-170, 110],
+            offset: foundImcData.popperOffset,
           },
         },
       ],
     });
-    show()
-
-    //Posicion de IMC y Popper para el resultado: "Delgadez"//
-
-  } else if (
-    imc(pesoImc(), alturaImc()) >= 15.9 &&
-    imc(pesoImc(), alturaImc()) < 18.5
-  ) {
-    imcDos.style.color = "blueviolet";
-    imcDos.innerText = `IMC: ${imcCalculo}`;
-    flecha.style.marginLeft = "-68px";
-    popperInstance = Popper.createPopper(button, tooltip, {
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [-92, 110],
-          },
-        },
-      ],
-    });
-    show()
-
-    //Posicion de IMC y Popper para el resultado: "Saludable"//
-
-  } else if (
-    imc(pesoImc(), alturaImc()) >= 18.5 &&
-    imc(pesoImc(), alturaImc()) < 24.9
-  ) {
-    imcTres.style.color = "blueviolet";
-    imcTres.innerText = `IMC: ${imcCalculo}`;
-    flecha.style.marginLeft = "3px";
-    popperInstance = Popper.createPopper(button, tooltip, {
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [-2, 110],
-          },
-        },
-      ],
-    });
-    show()
-
-    //Posicion de IMC y Popper para el resultado: "Sobrepeso"//
-
-  } else if (
-    imc(pesoImc(), alturaImc()) >= 24.9 &&
-    imc(pesoImc(), alturaImc()) < 29.9
-  ) {
-    imcCuatro.style.color = "blueviolet";
-    imcCuatro.innerText = `IMC: ${imcCalculo}`;
-    flecha.style.marginLeft = "79px";
-    popperInstance = Popper.createPopper(button, tooltip, {
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [80, 110],
-          },
-        },
-      ],
-    });
-    show()
-
-    //Posicion de IMC y Popper para el resultado: "Obesidad"//
-
-  } else if (imc(pesoImc(), alturaImc()) >= 29.9) {
-    imcCinco.style.color = "blueviolet";
-    imcCinco.innerText = `IMC: ${imcCalculo}`;
-    flecha.style.marginLeft = "78px";
-    popperInstance = Popper.createPopper(button, tooltip, {
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [170, 110],
-          },
-        },
-      ],
-    });
-    show()
-  } 
-
+    show();
+  }
 }
 
 //Funcion "Calculadora" principal que ejecuta todas las demas funciones cuando corresponde//
 
-function calculadora () {
+function calculadora() {
   darkMode();
   const calculoCalorias = document.getElementById("calcular");
   const calculoImc = document.getElementById("button");
   calculoCalorias.onclick = () => {
     Swal.fire({
       title: `Calorias: ${calculadoraDeCalorias()}`,
-      text: '¡Ahora ya sabes cuantas calorias debes consumir a diario!',
-      confirmButtonText:
-      'Genial!',
+      text: "¡Ahora ya sabes cuantas calorias debes consumir a diario!",
+      confirmButtonText: "Genial!",
       showClass: {
-        popup: 'animate__animated animate__fadeInDown'
+        popup: "animate__animated animate__fadeInDown",
       },
       hideClass: {
-        popup: 'animate__animated animate__fadeOutUp'
-      }
-    })
+        popup: "animate__animated animate__fadeOutUp",
+      },
+    });
   };
   calculoImc.onclick = () => {
     popperImc();
@@ -299,15 +225,4 @@ function calculadora () {
 }
 
 //Ejecucion de la funcion principal "Calculadora"//
-calculadora ()
-
-
-
-
-
-
-
-
-
-
-
+calculadora();
